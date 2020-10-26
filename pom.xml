@@ -19,6 +19,9 @@
 
 		<docker.image.prefix>pavankrishnadev</docker.image.prefix>
 		<maven.deploy.skip>true</maven.deploy.skip>
+
+		<github.global.server>github</github.global.server>
+		<github.global.oauth2Token>${env.GITHUB_OAUTH_TOKEN}</github.global.oauth2Token>
 	</properties>
 
 	<dependencies>
@@ -62,10 +65,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>${docker.image.prefix}/${project.artifactId}</repository>
-
-					<serverId>index.docker.io</serverId>
-					<registryUrl>https://index.docker.io:443/v1/</registryUrl>
+					<repository>index.docker.io/${docker.image.prefix}/${project.artifactId}</repository>
 				</configuration>
 			</plugin>
 		</plugins>
